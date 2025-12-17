@@ -1,0 +1,7 @@
+[user]
+	name = eric
+	email = ericdc3365@outlook.com
+[core]
+	editor = nano
+[init]
+	defaultBranch = main
