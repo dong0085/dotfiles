@@ -1,0 +1,23 @@
+# xargs brew install --cask < apps.txt
+slack
+discord
+figma
+firefox@developer-edition
+cursor
+vlc
+keka
+iterm2
+aldente
+visual-studio-code
+markedit
+betterdisplay
+bitwarden
+localsend
+iina
+postman
+hiddenbar
+karabiner-elements
+# place karabiner.json in ~/.config/karabiner/karabiner.json
+keyboardcleantool
+whatsapp
+sublime-text

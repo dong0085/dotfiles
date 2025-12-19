@@ -1,0 +1,6 @@
+# xargs brew install < cli-apps.txt
+ffmpeg
+imagemagick
+wget
+telnet
+tldr
