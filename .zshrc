@@ -40,6 +40,9 @@ path_prepend() {
 # Homebrew
 path_prepend "/opt/homebrew/bin" "/opt/homebrew/sbin"
 
+# Rust / Cargo (brew rustup is keg-only, per `brew info rustup`)
+path_prepend "/opt/homebrew/opt/rustup/bin" "$HOME/.cargo/bin"
+
 # Java / SDKMAN
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -98,6 +101,8 @@ alias devssd="cd /Volumes/Cheng/Dev_ssd"
 alias dotfiles="cd '$HOME/dotfiles'"
 alias gt-tronics="cd '$HOME/Developer/active/gt-tronics'"
 alias blog="cd '$HOME/Developer/completed/github_dong0085'"
+alias active="cd '$HOME/Developer/active'"
+
 
 # --- Custom Functions ---
 caffm() {
@@ -119,14 +124,23 @@ flutter-shelf() {
   echo "✅ Done! Build caches cleared."
 }
 
-# --- Service & API Configurations (Disabled) ---
-# Honhoursoft setup
-# export ANTHROPIC_AUTH_TOKEN="sk-kz8ytdEOAVx3HzYnw09SCNVnFyNtz6ytKNEuqMkZyIfyE7Xh"
-# export ANTHROPIC_BASE_URL="https://us.honoursoft.cn"
+# --- Flutter Run for QK connect with Environment Variables ---
+flutter_run_connect() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: flutter_run_connect <device_id> [extra flutter args...]"
+    return 1
+  fi
 
-# Model gate setup
-# export ANTHROPIC_AUTH_TOKEN="sk-J6aT4yuXmU8Yo31tsItx4vGVc4SlNdx2PCeDyt8Fuy8wdu2G"
-# export ANTHROPIC_BASE_URL="https://modelgate.app/"
-# Model gate setup with Headroom
-# export ANTHROPIC_API_KEY="sk-J6aT4yuXmU8Yo31tsItx4vGVc4SlNdx2PCeDyt8Fuy8wdu2G"
-# export ANTHROPIC_TARGET_API_URL="https://modelgate.app/"
+  local device_id="$1"
+  shift
+
+  fvm flutter run \
+    --dart-define-from-file=.env.local \
+    --dart-define=DX_AT_TRACE=true \
+    --dart-define=CSLOGGER_SHOW_MODULES=DxAtch \
+    --dart-define=CSLOGGER_LEVEL=debug \
+    -d "$device_id" \
+    "$@"
+}
+# Recipe archive
+alias recipe=/Users/eric/Developer/active/recipes/recipe

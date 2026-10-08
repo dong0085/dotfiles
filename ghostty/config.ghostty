@@ -1,0 +1,9 @@
+# Theme
+theme = dark:Monokai Pro,light:Monokai Pro Light
+font-size = 14
+
+# Behavior
+notify-on-command-finish-action = bell,no-notify
+
+# Keybind
+keybind = alt+backspace=text:\x17
