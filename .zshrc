@@ -71,7 +71,6 @@ path_prepend \
   "/usr/local/share/dotnet" \
   "$HOME/.dotnet/tools" \
   "/Library/Frameworks/Mono.framework/Versions/Current/Commands" \
-  "$HOME/Applications/iTerm.app/Contents/Resources/utilities" \
   "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 
 # --- Shell Completions & Dynamic Inits ---
@@ -85,9 +84,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # SDKMAN init
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-# iTerm2 Shell Integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # --- Aliases ---
 alias ll='ls -alF'

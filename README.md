@@ -1,6 +1,6 @@
 # dotfiles
 
-My Mac setup: shell config, git config, apps, Karabiner, Ghostty, iTerm2 and Alfred.
+My Mac setup: shell config, git config, apps, Karabiner and Ghostty.
 
 Keep this repo at `~/dotfiles`. `config.sh` expects it there.
 
@@ -22,14 +22,11 @@ git diff            # check what changed, then commit
 | `.bash_profile`, `.gitconfig`, `.gitignore`, `.zshrc` | `~/` |
 | `karabiner.json` | `~/.config/karabiner/karabiner.json` |
 | `ghostty/config.ghostty` | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
-| `iterm/iterm2_eric.json` | The "Eric" profile in iTerm2's settings |
-| `alfred/*.alfredworkflow` | Alfred's settings folder (each workflow already in `alfred/`) |
 | `Brewfile` | `brew bundle dump` (only with `--brew`) |
 
 Notes:
 
 - `--brew` replaces the hand-sorted Brewfile with the full list of installed apps and tools. Run it when you want that full list.
-- To back up a new Alfred workflow, export it once from Alfred into `alfred/`. After that, `fetch.sh` keeps it up to date.
 - To back up another plain config file, add a line to the `FILES` list at the top of `fetch.sh`:
 
   ```bash
@@ -115,16 +112,14 @@ mkdir -p ~/.config/karabiner
 cp ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 ```
 
-Karabiner picks up the new file on its own.
+Karabiner picks up the new file on its own. On a new Mac, open Karabiner-Elements once and give it the permissions it asks for:
 
-### 7. iTerm2
+- Approve the driver extension (**System Settings → General → Login Items & Extensions → Driver Extensions**).
+- Turn on **Karabiner-Core-Service** in **System Settings → Privacy & Security → Input Monitoring**.
 
-1. Open **iTerm2 → Settings → Profiles**.
-2. Click **Other Actions… → Import JSON Profiles…** and pick `iterm/iterm2_eric.json`.
-3. Select the **Eric** profile, then **Other Actions… → Set as Default**.
-4. For the color theme, go to **Colors → Color Presets… → Import…** and pick `iterm/VSCode Dark+.itermcolors`.
+To check it works, tap Caps Lock: it should act as Escape.
 
-### 8. Ghostty
+### 7. Ghostty
 
 ```bash
 mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
@@ -132,16 +127,6 @@ cp ~/dotfiles/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchell
 ```
 
 In Ghostty, press `Cmd+Shift+,` to reload the config.
-
-### 9. Alfred workflows
-
-Install Alfred 5, then run:
-
-```bash
-~/dotfiles/alfred/install.sh
-```
-
-See [alfred/README.md](alfred/README.md) for the list of workflows.
 
 ---
 
@@ -156,7 +141,5 @@ See [alfred/README.md](alfred/README.md) for the list of workflows.
 | `.gitconfig`, `.gitignore` | Git settings |
 | `karabiner.json` | Karabiner-Elements key remapping |
 | `ghostty/` | Ghostty terminal settings |
-| `iterm/` | iTerm2 profile and color theme |
-| `alfred/` | Alfred workflows and their install script |
 | `apps.txt`, `cli-apps.txt` | Older app lists (the Brewfile now covers these) |
 | `instructions.rtf` | Older Homebrew setup notes (steps 1 and 3 above cover these) |

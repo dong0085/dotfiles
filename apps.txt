@@ -6,7 +6,6 @@ firefox@developer-edition
 cursor
 vlc
 keka
-iterm2
 aldente
 visual-studio-code
 markedit
