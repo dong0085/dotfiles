@@ -142,5 +142,65 @@ flutter_run_connect() {
     -d "$device_id" \
     "$@"
 }
+
+# --- Flutter Run (release) for QK connect with Environment Variables ---
+flutter_run_connect_release() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: flutter_run_connect_release <device_id> [extra flutter args...]"
+    return 1
+  fi
+
+  local device_id="$1"
+  shift
+
+  fvm flutter run --release \
+    --dart-define-from-file=.env.local \
+    --dart-define=DX_AT_TRACE=true \
+    --dart-define=CSLOGGER_SHOW_MODULES=DxAtch \
+    --dart-define=CSLOGGER_LEVEL=debug \
+    -d "$device_id" \
+    "$@"
+}
+
+# --- Flutter Run for QK Recast with Environment Variables ---
+_flutter_run_recast() {
+  local mode_flag="$1" name="$2"
+  shift 2
+  if [[ -z "$1" ]]; then
+    echo "Usage: $name <device_id> [extra flutter args...]"
+    return 1
+  fi
+
+  local device_id="$1"
+  shift
+
+  local -a extra
+  [[ -n "$mode_flag" ]] && extra+=("$mode_flag")
+
+  fvm flutter run \
+    "${extra[@]}" \
+    --dart-define=DX_AT_TRACE=true \
+    --dart-define=CSLOGGER_SHOW_MODULES=DxAtch \
+    -d "$device_id" \
+    "$@"
+}
+
+flutter_run_recast() { _flutter_run_recast "" flutter_run_recast "$@"; }
+flutter_run_recast_release() { _flutter_run_recast --release flutter_run_recast_release "$@"; }
+
 # Recipe archive
-alias recipe=/Users/eric/Developer/active/recipes/recipe
+unalias recipe recipes 2>/dev/null
+unset -f recipe 2>/dev/null
+recipes() {
+  if [[ $# -eq 0 ]]; then
+    cd /Users/eric/Developer/active/recipes
+  else
+    /Users/eric/Developer/active/recipes/recipe "$@"
+  fi
+}
+export OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-key -w 2>/dev/null)"
+
+# chrome-devtools-axi: use Chrome for Testing
+export CHROME_DEVTOOLS_AXI_EXECUTABLE_PATH="$HOME/.cache/puppeteer/chrome/mac_arm-156.0.8078.47/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+
+

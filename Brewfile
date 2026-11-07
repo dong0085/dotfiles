@@ -2,6 +2,17 @@
 # Taps (extra sources)
 # ─────────────────────────────
 tap "supabase/tap"
+tap "anomalyco/tap", trusted: true
+tap "btwld/fvm", "https://github.com/btwld/homebrew-fvm.git"
+tap "cameroncooke/axe"
+tap "dart-lang/dart", trusted: true
+tap "espressif/eim", trusted: { casks: ["eim-gui"] }
+tap "mongodb/brew", trusted: true
+tap "osx-cross/arm", trusted: true
+tap "osx-cross/avr", trusted: true
+tap "oven-sh/bun", trusted: true
+tap "qmk/qmk", trusted: true
+tap "stripe/stripe-cli"
 
 # ─────────────────────────────
 # CLI Tools
@@ -49,3 +60,142 @@ cask "finetune"
 cask "ghostty"
 cask "firefox@developer-edition"
 cask "git-credential-manager"
+
+# ─────────────────────────────
+# More CLI Tools
+# ─────────────────────────────
+brew "ast-grep"
+brew "bash"
+brew "glib"
+brew "cmake"
+brew "create-dmg"
+brew "duti"
+brew "fzf"
+brew "git"
+brew "openssl@3"
+brew "git-filter-repo"
+brew "glow"
+brew "go"
+brew "gradle"
+brew "ios-deploy"
+brew "micro"
+brew "minio"
+brew "ninja"
+brew "node"
+brew "pandoc"
+brew "postgresql@17", restart_service: :changed, link: true
+brew "powerlevel10k"
+brew "pyinstaller"
+brew "python-tk@3.14"
+brew "rbenv"
+brew "redis"
+brew "rtk"
+brew "rustup"
+brew "scrcpy"
+brew "swiftformat"
+brew "tree"
+brew "typst"
+brew "virtualenv"
+brew "watchman"
+brew "xcodegen"
+brew "yarn"
+brew "yt-dlp"
+brew "zsh-syntax-highlighting"
+brew "anomalyco/tap/opencode-v2", trusted: true
+brew "cameroncooke/axe/axe", trusted: true
+brew "dart-lang/dart/dart"
+brew "oven-sh/bun/bun"
+brew "stripe/stripe-cli/stripe", trusted: true
+
+# ─────────────────────────────
+# More GUI Apps and Fonts (Casks)
+# ─────────────────────────────
+cask "cc-switch"
+cask "codex"
+cask "font-fontawesome"
+cask "font-source-sans-3"
+cask "google-chrome"
+cask "kekaexternalhelper"
+cask "libreoffice"
+cask "openlogi"
+cask "opensuperwhisper"
+cask "orbstack"
+
+# ─────────────────────────────
+# Go and Rust tools
+# ─────────────────────────────
+go "golang.org/x/tools/gopls"
+cargo "cargo-ndk"
+cargo "wasm-bindgen-cli"
+
+# ─────────────────────────────
+# VS Code extensions
+# ─────────────────────────────
+vscode "alexisvt.flutter-snippets"
+vscode "anthropic.claude-code"
+vscode "astro-build.astro-vscode"
+vscode "bierner.markdown-preview-github-styles"
+vscode "bmewburn.vscode-intelephense-client"
+vscode "bradlc.vscode-tailwindcss"
+vscode "celianriboulet.webvalidator"
+vscode "charliermarsh.ruff"
+vscode "christian-kohler.npm-intellisense"
+vscode "christian-kohler.path-intellisense"
+vscode "dart-code.dart-code"
+vscode "dart-code.flutter"
+vscode "dbaeumer.vscode-eslint"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "expo.vscode-expo-tools"
+vscode "formulahendry.auto-rename-tag"
+vscode "foxundermoon.shell-format"
+vscode "fwcd.kotlin"
+vscode "golang.go"
+vscode "google.gemini-cli-vscode-ide-companion"
+vscode "google.geminicodeassist"
+vscode "jacobcassidy.css-nesting-syntax-highlighting"
+vscode "kisstkondoros.vscode-gutter-preview"
+vscode "leetcode.vscode-leetcode"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-ceintl.vscode-language-pack-fr"
+vscode "ms-ceintl.vscode-language-pack-zh-hans"
+vscode "ms-ceintl.vscode-language-pack-zh-hant"
+vscode "ms-dotnettools.csdevkit"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-python.debugpy"
+vscode "ms-python.pylint"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpp-devtools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "naumovs.color-highlight"
+vscode "oderwat.indent-rainbow"
+vscode "oracle.oracle-java"
+vscode "pflannery.vscode-versionlens"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "ritwickdey.liveserver"
+vscode "royaction.color-manager"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "simonsiefke.svg-preview"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "streetsidesoftware.code-spell-checker-canadian-english"
+vscode "sweetpad.sweetpad"
+vscode "swiftlang.swift-vscode"
+vscode "vadimcn.vscode-lldb"
+vscode "vscjava.vscode-gradle"
+vscode "vscode-icons-team.vscode-icons"
+vscode "wayou.vscode-todo-highlight"
+vscode "yzhang.markdown-all-in-one"
