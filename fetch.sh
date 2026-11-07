@@ -20,6 +20,7 @@ FILES=(
     "$HOME/.gitconfig|.gitconfig"
     "$HOME/.gitignore|.gitignore"
     "$HOME/.zshrc|.zshrc"
+    "$HOME/.p10k.zsh|.p10k.zsh"
     "$HOME/.config/karabiner/karabiner.json|karabiner.json"
     "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty|ghostty/config.ghostty"
 )
@@ -42,8 +43,11 @@ done
 python3 - "$ITERM_PROFILE" "$DOTFILES_DIR/iterm/iterm2_eric.json" <<'EOF'
 import json, os, plistlib, sys
 name, dest = sys.argv[1], sys.argv[2]
-with open(os.path.expanduser("~/Library/Preferences/com.googlecode.iterm2.plist"), "rb") as f:
-    prefs = plistlib.load(f)
+plist = os.path.expanduser("~/Library/Preferences/com.googlecode.iterm2.plist")
+prefs = {}
+if os.path.isfile(plist):
+    with open(plist, "rb") as f:
+        prefs = plistlib.load(f)
 profile = next((p for p in prefs.get("New Bookmarks", []) if p.get("Name") == name), None)
 if profile is None:
     print(f"  missing iTerm profile '{name}'")

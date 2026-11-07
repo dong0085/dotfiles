@@ -27,7 +27,7 @@ source "$ZSH/oh-my-zsh.sh"
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # --- OpenSSL Cert Store Fix ---
-export RUBYOPT="-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
+[[ -f "$HOME/.rubyopenssl_default_store.rb" ]] && export RUBYOPT="-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
 
 # --- Helper: Idempotent PATH prepend ---
 path_prepend() {

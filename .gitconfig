@@ -3,6 +3,7 @@
 	email = dong0085@algonquinlive.com
 [core]
 	editor = code --wait
+	excludesFile = ~/.gitignore
 [init]
 	defaultBranch = main
 [pull]

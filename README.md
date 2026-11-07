@@ -70,7 +70,19 @@ Homebrew installs everything in the list, skips anything already installed, and 
 ~/dotfiles/config.sh
 ```
 
-This copies `.bash_profile`, `.gitconfig`, `.gitignore` and `.zshrc` to `~/`. Open a new terminal window to load them.
+This copies `.bash_profile`, `.gitconfig`, `.gitignore`, `.zshrc` and `.p10k.zsh` to `~/`.
+
+Then install Oh-My-Zsh and the theme and plugins `.zshrc` uses:
+
+```bash
+KEEP_ZSHRC=yes RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH_CUSTOM=~/.oh-my-zsh/custom
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+```
+
+Open a new terminal window to load them. If there's no `.p10k.zsh` in the repo yet, the prompt wizard starts; run `./fetch.sh` afterwards to save its result.
 
 ### 5. Sign in to GitHub
 
