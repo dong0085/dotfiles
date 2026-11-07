@@ -862,25 +862,6 @@
                         ]
                     },
                     {
-                        "description": "CAPS_LOCK + SPACE : Toggle Alfred",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_shift", "left_command", "left_control", "left_option"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "CAPS_LOCK + i/j/k/l == Arrow Keys and CAPS_LOCK + esc == `",
                         "manipulators": [
                             {
