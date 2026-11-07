@@ -199,7 +199,5 @@ recipes() {
   fi
 }
 
-# chrome-devtools-axi: use Chrome for Testing
-export CHROME_DEVTOOLS_AXI_EXECUTABLE_PATH="$HOME/.cache/puppeteer/chrome/mac_arm-156.0.8078.47/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
 
 
